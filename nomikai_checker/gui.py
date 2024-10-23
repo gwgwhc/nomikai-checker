@@ -1,15 +1,17 @@
 import PySimpleGUI as sg
-from nomikai_checker import NomikaiChecker
+import os
+from .nomikai_checker import NomikaiChecker
 
 
 class NomikaiCheckerGUI():
     def __init__(self):
         """ Initialize image paths, NomikaiChecker and window."""
+        base_path = os.path.dirname(os.path.abspath(__file__))
         self.img_paths = {
-            'nekochan': 'images/nekochan.png',
-            'isogashii': 'images/isogashii_woman.png',
-            'gaman': 'images/gaman_osake_woman.png',
-            'energy': 'images/energy_drink.png'
+            'nekochan': os.path.join(base_path, 'images', 'nekochan.png'),
+            'isogashii': os.path.join(base_path, 'images', 'isogashii_woman.png'),
+            'gaman': os.path.join(base_path, 'images', 'gaman_osake_woman.png'),
+            'energy': os.path.join(base_path, 'images', 'energy_drink.png')
         }
         self.checker = NomikaiChecker()  # Initialize NomikaiChecker
         self.window = self.make_window()  # Create the window

@@ -1,4 +1,4 @@
-from gui import NomikaiCheckerGUI
+from .gui import NomikaiCheckerGUI
 
 def main():
     gui = NomikaiCheckerGUI()
