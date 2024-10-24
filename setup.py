@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="nomikai_checker",
-    version="4.0.1",
+    version="4.0.2",
     author="gwgwhc",
     description="Check if it's time for nomikai - if the Gods will it.",
     long_description=long_description,
