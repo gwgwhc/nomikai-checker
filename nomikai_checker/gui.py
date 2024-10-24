@@ -1,5 +1,5 @@
-import PySimpleGUI as sg
 import os
+import PySimpleGUI as sg
 from .nomikai_checker import NomikaiChecker
 
 
@@ -61,7 +61,7 @@ class NomikaiCheckerGUI():
 
             if event == 'btn_bottom':
                 if self.window['btn_bottom'].ButtonText == 'Exit':
-                    break  # Exit the loop if 'Exit' button is pressed
+                    break
 
                 self.process_nomikai_check()
 
@@ -74,7 +74,7 @@ class NomikaiCheckerGUI():
         """Process the logic for checking the nomikai probability and update the UI"""
         today = self.checker.get_datetime()
 
-        # Check if probability to leave early based on the current day
+        # Check probability to leave early based on the current time/day
         if today.strftime('%A') in ('Saturday', 'Sunday') and self.checker.check_probability():
             self.update_ui('What are you doing? Go and drink!', 'energy')
         elif self.checker.check_probability():
@@ -87,6 +87,7 @@ class NomikaiCheckerGUI():
     def run(self):
         """Run the main event loop for the GUI"""
         self.handle_event()
+
 
 def test():
     NomikaiCheckerGUI().run()
